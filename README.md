@@ -26,3 +26,7 @@ COC is the code autocompletion plugin for NeoVim and it requires a bit of extra 
 - `cd ~/.local/share/nvim/plugged`
 - `yarn install && yarn build`
 - Install language servers for the languages that you use (information can be found [here](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
+
+## Tagbar Plugin Setup
+
+Tagbar is a plugin that shows information on variables, functions, and imports with the current file. To set it up, exuberant-ctags needs to be installed by running the command `sudo apt install exuberant-ctags`
