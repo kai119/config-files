@@ -67,6 +67,7 @@ nmap <F6> :TagbarToggle<CR>
 
 " Tagbar Options
 let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 
 " Tagbar Symbols
 let g:tagbar_iconchars = ["+", "~"]
