@@ -30,6 +30,7 @@ Plug 'junegunn/fzf' " Fuzzy File Search
 Plug 'https://github.com/airblade/vim-gitgutter' " Git Gutter
 Plug 'dense-analysis/ale' " Linter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
+Plug 'm4xshen/autoclose.nvim' " Auto Close Brackets + Quotes
 
 set encoding=UTF-8
 
