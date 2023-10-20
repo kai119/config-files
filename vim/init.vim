@@ -30,11 +30,15 @@ Plug 'junegunn/fzf' " Fuzzy File Search
 Plug 'https://github.com/airblade/vim-gitgutter' " Git Gutter
 Plug 'dense-analysis/ale' " Linter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
-Plug 'm4xshen/autoclose.nvim' " Auto Close Brackets + Quotes
+Plug 'windwp/nvim-autopairs' " Auto Close Brackets + Quotes
 
 set encoding=UTF-8
 
 call plug#end()
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
 
 " air-line
 let g:airline_powerline_fonts = 1
