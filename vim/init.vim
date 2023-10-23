@@ -36,6 +36,9 @@ set encoding=UTF-8
 
 call plug#end()
 
+" Toggle relative line number
+nmap <C-L><C-L> :set invrelativenumber<CR>
+
 lua << EOF
 require("nvim-autopairs").setup {}
 EOF
