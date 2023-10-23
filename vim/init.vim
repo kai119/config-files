@@ -82,6 +82,12 @@ let g:tagbar_iconchars = ["+", "~"]
 
 " Coc.vim Setup
 
+" Go to definition shortcuts
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Make <CR> (return key) to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
