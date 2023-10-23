@@ -30,3 +30,7 @@ COC is the code autocompletion plugin for NeoVim and it requires a bit of extra 
 ## Tagbar Plugin Setup
 
 Tagbar is a plugin that shows information on variables, functions, and imports with the current file. To set it up, exuberant-ctags needs to be installed by running the command `sudo apt install exuberant-ctags`
+
+## Autopairs Setup
+
+Nvim-Autopairs is a plugin that automatically closes brackets and quotation marks when they are opened. To use Autopairs, nvim needs to be installed using pip on a Python version of >3.10. To install nvim through pip, run `pip3 install neovim` (you don't have to uninstall the previous version of nvim)
