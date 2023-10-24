@@ -31,17 +31,20 @@ Plug 'https://github.com/airblade/vim-gitgutter' " Git Gutter
 Plug 'dense-analysis/ale' " Linter
 Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'windwp/nvim-autopairs' " Auto Close Brackets + Quotes
+Plug 'puremourning/vimspector' " Interactive Debugger
+Plug 'Pocco81/auto-save.nvim' " Auto save
 
 set encoding=UTF-8
 
 call plug#end()
 
-" Toggle relative line number
-nmap <C-L><C-L> :set invrelativenumber<CR>
-
 lua << EOF
 require("nvim-autopairs").setup {}
+require("auto-save").setup {}
 EOF
+
+" Toggle relative line number
+nmap <C-L><C-L> :set invrelativenumber<CR>
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -88,6 +91,20 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Coc.vim root patterns
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
 " Make <CR> (return key) to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
 
@@ -115,4 +132,14 @@ let g:floaterm_keymap_next   = '<F11>'
 let g:floaterm_keymap_toggle = '<F12>'
 
 " Colour Scheme
-:colorscheme space-vim-dark 
+:colorscheme space-vim-dark  
+
+" Vimspector Setup
+
+" Vimspector Keyboard Shortcuts
+nmap <F2> <Plug>VimspectorStepOver  
+nmap <F3> <Plug>VimspectorStepInto 
+nmap <F4> <Plug>VimspectorStepOut 
+nmap <F5> <Plug>VimspectorContinue
+nmap <C-F5> <Plug>VimspectorRestart
+nmap <F6> <Plug>VimspectorToggleBreakpoint
