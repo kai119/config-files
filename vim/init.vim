@@ -19,6 +19,7 @@ Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'nvim-tree/nvim-web-devicons' " Developer Icons for Nvim
 Plug 'voldikss/vim-floaterm' " Vim Terminal
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
@@ -33,6 +34,13 @@ Plug 'sheerun/vim-polyglot' " Syntax Highlighting
 Plug 'windwp/nvim-autopairs' " Auto Close Brackets + Quotes
 Plug 'puremourning/vimspector' " Interactive Debugger
 Plug 'Pocco81/auto-save.nvim' " Auto save
+Plug 'nvim-telescope/telescope.nvim' " File Searching
+Plug 'https://github.com/folke/todo-comments.nvim' " Todo List
+Plug 'nvim-lua/plenary.nvim' " Extra Lua Functionality
+Plug 'nvim-treesitter/nvim-treesitter' " TreeSitter Plugin for Vim
+Plug 'https://github.com/klen/nvim-test' " Test Runner
+Plug 'sindrets/diffview.nvim' " Git Diff View
+Plug 'Civitasv/cmake-tools.nvim' " CMake Tools
 
 set encoding=UTF-8
 
@@ -41,6 +49,8 @@ call plug#end()
 lua << EOF
 require("nvim-autopairs").setup {}
 require("auto-save").setup {}
+require("todo-comments").setup {}
+require("nvim-test").setup {}
 EOF
 
 " Toggle relative line number
@@ -72,9 +82,6 @@ let g:NERDTreeDirArrowCollapsible="~"
 nnoremap <C-y> :NERDTreeToggle<CR>
 
 " Tagbar setup
-
-" Tagbar Keyboard Shortcuts
-nmap <F6> :TagbarToggle<CR>
 
 " Tagbar Options
 let g:tagbar_autofocus = 1
@@ -120,7 +127,8 @@ let g:far#highlight_match = 1
 " Fzf Setup
 
 " Fzf Keyboard Shortcuts
-nmap <C-p> :Files<CR>
+nmap <C-p> :Telescope find_files<CR>
+nnoremap <C-x><C-t> <cmd>TodoTelescope<CR>
 
 " Floaterm Setup
 
@@ -132,7 +140,7 @@ let g:floaterm_keymap_next   = '<F11>'
 let g:floaterm_keymap_toggle = '<F12>'
 
 " Colour Scheme
-:colorscheme space-vim-dark  
+:colorscheme space-vim-dark 
 
 " Vimspector Setup
 
@@ -143,3 +151,9 @@ nmap <F4> <Plug>VimspectorStepOut
 nmap <F5> <Plug>VimspectorContinue
 nmap <C-F5> <Plug>VimspectorRestart
 nmap <F6> <Plug>VimspectorToggleBreakpoint
+
+" Diffview Setup
+
+"Diffview Keyboard Shortcuts
+nmap <F7> :DiffviewOpen<CR>
+nmap <C-F7> :DiffviewClose<CR>

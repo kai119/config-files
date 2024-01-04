@@ -1,7 +1,13 @@
 {
-    "colors.enable": true:,
+    "colors.enable": true,
     "codeLens.enable": true,
     "codeLens.position": "eol",
     "coc.preferences.formatOnSave": true,
-    "coc.preferences.formatOnType": true
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "coc.preferences.formatOnType": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["-l", "100"],
+    "snippets.ultisnips.pythonPrompt": false,
+    "javascript.suggest.autoImports": true, 
+    "typescript.suggest.autoImports": true
 }
